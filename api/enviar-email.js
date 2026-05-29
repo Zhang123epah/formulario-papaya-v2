@@ -16,6 +16,18 @@ export default async function handler(req, res) {
       linksFotos
     } = req.body;
 
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.EMAIL_TO) {
+      return res.status(500).json({
+        erro: "Faltam variáveis de ambiente no Vercel: EMAIL_USER, EMAIL_PASS ou EMAIL_TO."
+      });
+    }
+
+    if (!linksFotos || linksFotos.length === 0) {
+      return res.status(400).json({
+        erro: "Nenhum link de foto foi recebido."
+      });
+    }
+
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -58,7 +70,7 @@ ${listaFotos}
     console.error("Erro ao enviar email:", erro);
 
     return res.status(500).json({
-      erro: "Erro ao enviar email."
+      erro: erro.message || "Erro ao enviar email."
     });
   }
 }
