@@ -4,7 +4,7 @@ import {
   ref,
   uploadBytes,
   getDownloadURL
-} from "https://console.firebase.google.com/u/2/project/formulariopapaya/storage/formulariopapaya.firebasestorage.app/files?hl=pt-br";
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -20,7 +20,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const storage = getStorage(app);
 
 const formulario = document.getElementById("formulario");
 const estado = document.getElementById("estado");
