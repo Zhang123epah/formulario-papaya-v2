@@ -1,0 +1,13 @@
+{
+  "name": "formulario-modelo",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "firebase": "^12.13.0",
+    "formidable": "^3.5.4",
+    "nodemailer": "^6.10.1"
+  }
+}
