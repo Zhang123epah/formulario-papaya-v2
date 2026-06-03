@@ -8,6 +8,7 @@ body {
 .container {
   max-width: 480px;
   margin: auto;
+  position: relative;
   background: white;
   padding: 25px;
   border-radius: 12px;
@@ -15,10 +16,11 @@ body {
 }
 
 .logo {
-  display: block;
-  width: 180px;
-  max-width: 70%;
-  margin: 0 auto 18px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 90px;
+  height: auto;
   border-radius: 8px;
 }
 
