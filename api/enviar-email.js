@@ -58,7 +58,7 @@ ${listaFotos}
     from: `"Candidaturas Papaya" <${process.env.EMAIL_USER}>`,
     to: process.env.EMAIL_TO,
     replyTo: email,
-    subject: `Nova candidatura de modelo - ${nome}`,
+    subject: `Nova candidatura de modelo PAPAYA X ROCK IN RIO - ${nome}`,
     text: mensagem
   });
 
