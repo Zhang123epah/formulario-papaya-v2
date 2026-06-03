@@ -55,11 +55,12 @@ ${listaFotos}
 `;
 
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_TO,
-      subject: "Nova candidatura de modelo",
-      text: mensagem
-    });
+    from: `"Candidaturas Papaya" <${process.env.EMAIL_USER}>`,
+    to: process.env.EMAIL_TO,
+    replyTo: email,
+    subject: `Nova candidatura de modelo - ${nome}`,
+    text: mensagem
+  });
 
     return res.status(200).json({
       sucesso: true,

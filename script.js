@@ -25,6 +25,17 @@ const storage = getStorage(app);
 const formulario = document.getElementById("formulario");
 const estado = document.getElementById("estado");
 const botao = formulario.querySelector("button[type='submit']");
+const inputIdade = document.getElementById("idade");
+const inputTelefone = document.getElementById("telefone");
+
+function permitirApenasNumeros(input, limite) {
+  input.addEventListener("input", function () {
+    input.value = input.value.replace(/\D/g, "").slice(0, limite);
+  });
+}
+
+permitirApenasNumeros(inputIdade, 3);
+permitirApenasNumeros(inputTelefone, 9);
 
 function mostrarEstado(mensagem, cor) {
   estado.textContent = mensagem;
@@ -46,6 +57,15 @@ formulario.addEventListener("submit", async function (event) {
     const rgpd = document.getElementById("rgpd").checked;
     const fotos = document.getElementById("fotos").files;
 
+    if (!/^\d{1,3}$/.test(idade)) {
+      mostrarEstado("A idade deve conter apenas números.", "red");
+      return;
+    }
+
+  if (!/^\d{9}$/.test(telefone)) {
+      mostrarEstado("O telefone deve ter exatamente 9 números.", "red");
+      return;
+    }
     if (!nome || !idade || !telefone || !email || !altura) {
       mostrarEstado("Preenche todos os campos obrigatórios.", "red");
       return;
